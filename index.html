@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    </head>
+    <body>
+        <h2>Static render test</h2>
+        <script>
+
+          retrieveAuthenticationParametersCallback = function(authenticateWith){
+            console.log('retrieveAuthenticationParameters');
+
+            authenticateWith({ type: 'SIMPLE_AUTHENTICATION', userId: 'testJcare1' });
+          };
+          iAdvizeCallbacks = {
+            retrieveAuthenticationParameters: function(callback){
+              retrieveAuthenticationParametersCallback(callback);
+            }
+          };
+
+          (function() {
+            var idz = document.createElement("script");
+            idz.type = "text/javascript";
+            idz.src = document.location.protocol + "//livechat-preprod-07.iadvize.com/iadvize.js?sid=1";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(idz, s);
+          })();
+
+        </script>
+    </body>
+</html>
